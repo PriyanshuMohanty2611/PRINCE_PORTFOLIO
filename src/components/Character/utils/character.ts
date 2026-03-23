@@ -66,7 +66,7 @@ const setCharacter = (
             dracoLoader.dispose();
             URL.revokeObjectURL(blobUrl);
           },
-          (xhr) => {
+          () => {
              // Progress update if needed
           },
           (error) => {
