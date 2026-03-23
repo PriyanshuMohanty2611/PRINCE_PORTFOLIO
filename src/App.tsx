@@ -9,6 +9,7 @@ import { LoadingProvider } from "./context/LoadingProvider";
 
 const App = () => {
   return (
+    <>
       <div style={{ display: 'none' }}>Build v2.1.2 - {new Date().toISOString()}</div>
       <CustomCursor />
       <PlexusBackground />
