@@ -5,33 +5,33 @@ import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 const projects = [
   {
-    title: "Solid Starters",
-    category: "Low-Code Platform",
-    tools: "Angular, Next.js, NestJS, MongoDB",
+    title: "IoT-Based Smart Healthcare",
+    category: "IoT & AI",
+    tools: "ML-based Alerts, Sensors, Real-time vitals monitoring",
     image: "/images/Solidx.png",
   },
   {
-    title: "Radix",
-    category: "E-Commerce",
-    tools: "Angular, Next.js, NestJS, CMS",
+    title: "Smart Product Scanner",
+    category: "Computer Vision",
+    tools: "Barcode Recognition, Inventory Management Solution",
     image: "/images/radix.png",
   },
   {
-    title: "Bond Cancellation",
-    category: "Import-Export Automation",
-    tools: "Angular, Next.js, NestJS, Workflows",
+    title: "Smart Menstrual Health System",
+    category: "IoT & AI",
+    tools: "ML-driven cycle prediction, IoT-based tracking system",
     image: "/images/bond.png",
   },
   {
-    title: "Sapphire",
-    category: "CRM Platform",
-    tools: "AngularJS, NestJS, PostgreSQL",
+    title: "Blockchain Herb Traceability",
+    category: "Blockchain",
+    tools: "Supply Chain Tracking, Transparent Blockchain Architecture",
     image: "/images/sapphire.png",
   },
   {
-    title: "Mpro",
-    category: "Insurance Platform",
-    tools: "React.js, Node.js, Microservices",
+    title: "Smart Blood Donation App",
+    category: "Mobile Application",
+    tools: "Real-time donor-recipient matching, React Native/Flutter",
     image: "/images/Maxlife.png",
   },
 ];

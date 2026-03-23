@@ -3,11 +3,13 @@ import "./App.css";
 
 const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
+import PlexusBackground from "./components/PlexusBackground";
 import { LoadingProvider } from "./context/LoadingProvider";
 
 const App = () => {
   return (
     <>
+      <PlexusBackground />
       <LoadingProvider>
         <Suspense>
           <MainContainer>
