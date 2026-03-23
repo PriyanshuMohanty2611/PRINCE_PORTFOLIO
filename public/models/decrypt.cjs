@@ -16,5 +16,5 @@ const decryptFile = (inputFile, outputFile, password) => {
   fs.writeFileSync(outputFile, decryptedData);
 };
 
-decryptFile("character.enc", "character.glb", "Character3D#@");
+decryptFile("character.enc", "character.glb", "MyCharacter12");
 console.log("Decrypted character.glb successfully!");

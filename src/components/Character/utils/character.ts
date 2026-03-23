@@ -19,7 +19,7 @@ const setCharacter = (
         console.log("Fetching character model...");
         const encryptedBlob = await decryptFile(
           "/models/character.enc?v=2",
-          "Character3D#@"
+          "MyCharacter12"
         );
         console.log("Character model decrypted successfully!");
         const blobUrl = URL.createObjectURL(new Blob([encryptedBlob]));
