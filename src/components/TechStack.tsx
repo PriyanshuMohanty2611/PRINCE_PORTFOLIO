@@ -11,24 +11,33 @@ import {
   RapierRigidBody,
 } from "@react-three/rapier";
 
-const textureLoader = new THREE.TextureLoader();
-const imageUrls = [
-  "/images/python.png",
-  "/images/pytorch.png",
-  "/images/opencv.png",
-  "/images/tensorflow.png",
-  "/images/mongo.webp",
-  "/images/mysql.webp",
-  "/images/typescript.webp",
-  "/images/javascript.webp",
+const skillList = [
+  { name: "NLP", color: "#FF4500" }, // OrangeRed
+  { name: "OpenCV", color: "#32CD32", icon: "/images/opencv.png" }, // LimeGreen
+  { name: "Deep Learning", color: "#1E90FF" }, // DodgerBlue
+  { name: "LLMs", color: "#FF1493" }, // DeepPink
+  { name: "RAG", color: "#FFD700" }, // Gold
+  { name: "Transformers", color: "#8A2BE2" }, // BlueViolet
+  { name: "Python", color: "#3776AB", icon: "/images/python.png" }, // Python Blue
+  { name: "Java", color: "#ED8B00" }, // Java Orange
+  { name: "C++", color: "#00599C" }, // C++ Blue
+  { name: "SQL", color: "#00758F" }, // SQL Cyan
+  { name: "MERN Stack", color: "#61DBFB" }, // React Blue
+  { name: "REST APIs", color: "#4CAF50" }, // API Green
+  { name: "MySQL", color: "#4479A1" }, // MySQL Blue
+  { name: "Git", color: "#F05032" }, // Git Orange
+  { name: "Blockchain", color: "#2E8B57" }, // SeaGreen
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
-const spheres = [...Array(30)].map(() => ({
-  scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
-}));
+const spheres = [...Array(30)].map((_, i) => {
+  const skillIndex = i % skillList.length;
+  return {
+    skill: skillList[skillIndex],
+    scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
+  };
+});
 
 type SphereProps = {
   vec?: THREE.Vector3;
@@ -55,9 +64,9 @@ function SphereGeo({
       .normalize()
       .multiply(
         new THREE.Vector3(
-          -50 * delta * scale,
-          -150 * delta * scale,
-          -50 * delta * scale
+          -70 * delta * scale,
+          -220 * delta * scale,
+          -70 * delta * scale
         )
       );
 
@@ -69,7 +78,7 @@ function SphereGeo({
       linearDamping={0.75}
       angularDamping={0.15}
       friction={0.2}
-      position={[r(20), r(20) - 25, r(20) - 10]}
+      position={[r(25), r(25) - 25, r(25) - 10]}
       ref={api}
       colliders={false}
     >
@@ -86,7 +95,8 @@ function SphereGeo({
         geometry={sphereGeometry}
         material={material}
         rotation={[0.3, 1, 1]}
-      />
+      >
+      </mesh>
     </RigidBody>
   );
 }
@@ -126,15 +136,18 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
 
 const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
+  const textureLoader = useMemo(() => new THREE.TextureLoader(), []);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const threshold = document
-        .getElementById("work")!
-        .getBoundingClientRect().top;
-      setIsActive(scrollY > threshold);
+      const element = document.getElementById("work");
+      if (element) {
+        const threshold = element.getBoundingClientRect().top;
+        setIsActive(scrollY > threshold);
+      }
     };
+    
     document.querySelectorAll(".header a").forEach((elem) => {
       const element = elem as HTMLAnchorElement;
       element.addEventListener("click", () => {
@@ -151,60 +164,70 @@ const TechStack = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const materials = useMemo(() => {
-    return textures.map(
-      (texture) =>
-        new THREE.MeshPhysicalMaterial({
-          map: texture,
-          emissive: "#ffffff",
-          emissiveMap: texture,
-          emissiveIntensity: 0.3,
-          metalness: 0.5,
-          roughness: 1,
-          clearcoat: 0.1,
-        })
-    );
-  }, []);
+
+  const skillMaterials = useMemo(() => {
+    return skillList.map((skill) => {
+      const mat = new THREE.MeshPhysicalMaterial({
+        color: skill.color,
+        emissive: skill.color,
+        emissiveIntensity: 0.5,
+        metalness: 0.6,
+        roughness: 0.2,
+        clearcoat: 1,
+      });
+
+      if (skill.icon) {
+        textureLoader.load(skill.icon, (tex) => {
+          mat.map = tex;
+          mat.needsUpdate = true;
+        });
+      }
+      return mat;
+    });
+  }, [textureLoader]);
 
   return (
-    <div className="techstack">
-      <h2> My Expertise Stack</h2>
+    <div className="techstack" id="techstack">
+      <h2> Expertise <span>Stack</span></h2>
 
       <Canvas
         shadows
-        gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
+        gl={{ alpha: true, stencil: false, depth: false, antialias: true }}
         camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
         onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
         className="tech-canvas"
       >
-        <ambientLight intensity={1} />
+        <ambientLight intensity={1.5} />
         <spotLight
           position={[20, 20, 25]}
           penumbra={1}
           angle={0.2}
-          color="white"
+          color="#ffffff"
           castShadow
           shadow-mapSize={[512, 512]}
         />
-        <directionalLight position={[0, 5, -4]} intensity={2} />
+        <directionalLight position={[0, 5, -4]} intensity={3} />
         <Physics gravity={[0, 0, 0]}>
           <Pointer isActive={isActive} />
-          {spheres.map((props, i) => (
-            <SphereGeo
-              key={i}
-              {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
-              isActive={isActive}
-            />
-          ))}
+          {spheres.map((props, i) => {
+            const matIndex = i % skillList.length;
+            return (
+              <SphereGeo
+                key={i}
+                {...props}
+                material={skillMaterials[matIndex]}
+                isActive={isActive}
+              />
+            );
+          })}
         </Physics>
         <Environment
           files="/models/char_enviorment.hdr"
-          environmentIntensity={0.5}
+          environmentIntensity={0.8}
           environmentRotation={[0, 4, 2]}
         />
         <EffectComposer enableNormalPass={false}>
-          <N8AO color="#0f002c" aoRadius={2} intensity={1.15} />
+          <N8AO color="#0f002c" aoRadius={2} intensity={1.5} />
         </EffectComposer>
       </Canvas>
     </div>
