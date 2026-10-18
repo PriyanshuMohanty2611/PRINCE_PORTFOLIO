@@ -12,21 +12,25 @@ import {
 } from "@react-three/rapier";
 
 const skillList = [
-  { name: "NLP", color: "#FF4500" }, // OrangeRed
-  { name: "OpenCV", color: "#32CD32", icon: "/images/opencv.png" }, // LimeGreen
-  { name: "Deep Learning", color: "#1E90FF" }, // DodgerBlue
-  { name: "LLMs", color: "#FF1493" }, // DeepPink
-  { name: "RAG", color: "#FFD700" }, // Gold
-  { name: "Transformers", color: "#8A2BE2" }, // BlueViolet
-  { name: "Python", color: "#3776AB", icon: "/images/python.png" }, // Python Blue
-  { name: "Java", color: "#ED8B00" }, // Java Orange
-  { name: "C++", color: "#00599C" }, // C++ Blue
-  { name: "SQL", color: "#00758F" }, // SQL Cyan
-  { name: "MERN Stack", color: "#61DBFB" }, // React Blue
-  { name: "REST APIs", color: "#4CAF50" }, // API Green
-  { name: "MySQL", color: "#4479A1" }, // MySQL Blue
-  { name: "Git", color: "#F05032" }, // Git Orange
-  { name: "Blockchain", color: "#2E8B57" }, // SeaGreen
+  { name: "YOLO", color: "#FF4500" },
+  { name: "OpenCV", color: "#32CD32", icon: "/images/opencv.png" },
+  { name: "Deep Learning", color: "#1E90FF" },
+  { name: "Machine Learning", color: "#00C9A7" },
+  { name: "LLMs", color: "#FF1493" },
+  { name: "LangChain", color: "#845EC2" },
+  { name: "RAG", color: "#FFD700" },
+  { name: "Vector DB", color: "#8A2BE2" },
+  { name: "Python", color: "#3776AB", icon: "/images/python.png" },
+  { name: "JavaScript", color: "#F7DF1E" },
+  { name: "Pandas", color: "#150458" },
+  { name: "NumPy", color: "#013243" },
+  { name: "React", color: "#61DBFB" },
+  { name: "Three.js", color: "#000000" },
+  { name: "Arduino / ESP32", color: "#00979D" },
+  { name: "IoT Sensors", color: "#4CAF50" },
+  { name: "CUDA", color: "#76B900" },
+  { name: "MongoDB", color: "#47A248" },
+  { name: "Git", color: "#F05032" },
 ];
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);

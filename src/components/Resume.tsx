@@ -40,35 +40,94 @@ const Resume = () => {
                   <h4>ByteIQ Analytics</h4>
                   <span className="date">Jan 2026 - Present</span>
                 </div>
-                <span className="job-title">AI/ML Engineer — Bhubaneswar</span>
+                <span className="job-title">AI Engineer Intern — Bhubaneswar</span>
                 <ul className="resume-list">
-                  <li>Developed advanced computer vision models for mission-critical real-time traffic monitoring.</li>
-                  <li>Engineered sophisticated CCTV analytics systems for automated surveillance insights and anomaly detection.</li>
+                  <li>Developing computer vision models for mission-critical real-time traffic monitoring and vehicle tracking.</li>
+                  <li>Building intelligent CCTV analytics systems for automated surveillance insights, congestion alerts, and anomaly detection.</li>
+                </ul>
+              </div>
+
+              <div className="experience-item">
+                <div className="item-header">
+                  <h4>CTTC Bhubaneswar</h4>
+                  <span className="date">2025 · 30-Day Internship</span>
+                </div>
+                <span className="job-title">AI/ML Intern — Bhubaneswar</span>
+                <ul className="resume-list">
+                  <li>Completed intensive practical AI/ML training, applied computer vision, and neural network modeling.</li>
+                  <li>Implemented real-time inference workflows, data validation, and model optimization for edge deployment.</li>
                 </ul>
               </div>
             </div>
 
             {/* Expertise */}
             <div className="resume-block">
-              <h3>Core Expertise</h3>
+              <h3>Technical Skills (Verified Profile)</h3>
               <div className="expertise-group">
-                <div className="expertise-chips">
-                  {["NLP", "OpenCV", "Deep Learning", "LLMs", "RAG", "Transformers", "Python", "Java", "C++", "SQL", "MERN Stack", "REST APIs", "MySQL", "Git", "Blockchain"].map((skill) => (
-                    <span key={skill} className="expertise-chip">{skill}</span>
-                  ))}
-                </div>
+                {[
+                  {
+                    cat: "01 · AI, Machine Learning & Computer Vision",
+                    items: ["Machine Learning", "Deep Learning", "YOLO", "OpenCV", "Computer Vision"],
+                  },
+                  {
+                    cat: "02 · Generative AI & RAG",
+                    items: ["LLMs / Generative AI", "LangChain", "RAG", "Vector Databases"],
+                  },
+                  {
+                    cat: "03 · Programming & Data",
+                    items: ["Python", "JavaScript", "Pandas", "NumPy"],
+                  },
+                  {
+                    cat: "04 · Web & 3D Development",
+                    items: ["React", "HTML / CSS", "Three.js"],
+                  },
+                  {
+                    cat: "05 · IoT, Infrastructure & Tools",
+                    items: [
+                      "Arduino / ESP32",
+                      "IoT Sensors",
+                      "CUDA / NVIDIA DeepStream",
+                      "MongoDB / Firebase",
+                      "Git / GitHub",
+                    ],
+                  },
+                ].map((group) => (
+                  <div key={group.cat} style={{ marginBottom: "16px" }}>
+                    <div
+                      style={{
+                        fontSize: "0.85rem",
+                        fontWeight: 600,
+                        color: "var(--accentColor, #5eead4)",
+                        marginBottom: "8px",
+                        letterSpacing: "0.5px",
+                      }}
+                    >
+                      {group.cat}
+                    </div>
+                    <div className="expertise-chips">
+                      {group.items.map((skill) => (
+                        <span key={skill} className="expertise-chip">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Achievements */}
             <div className="resume-block">
-              <h3>Key Achievements</h3>
+              <h3>Verified Achievements & Leadership</h3>
               <ul className="resume-list">
-                <li><strong>3rd Runners-Up</strong>, IIT Bhubaneswar Hackathon (Menstrual Health Innovation)</li>
-                <li><strong>2nd Runners-Up (Twice)</strong>, Model Fiesta National Competition</li>
-                <li><strong>Top 10 Finalist</strong>, Smart India Hackathon (SIH 2024)</li>
-                <li><strong>DRDO Defence Project</strong>, Participant in Defence Upgradation initiatives</li>
-                <li><strong>National Conference Author</strong>, NCCENGT-2025 "Computing 4.0" Author</li>
+                <li><strong>2nd Position</strong>, IoT Innovation Challenge — Festronix 2025</li>
+                <li><strong>2nd Position</strong>, Engineer's Day 2025 Poster Presentation</li>
+                <li><strong>3rd Position</strong>, Model Fiesta and Web War — Suravi 2K25</li>
+                <li><strong>3rd Runners-Up</strong>, IIT Bhubaneswar Hackathon (ReFlow 2025 - Menstrual Health Innovation)</li>
+                <li><strong>Top 10 Finalist & Team Leader</strong>, Smart India Hackathon (SIH 2024 — "Safety Warriors")</li>
+                <li><strong>Team Leadership Recognition</strong>, GIET Ghangapatna Hackfest 2025</li>
+                <li><strong>National Conference Author</strong>, NCCENGT-2025 (Topic: "Computing 4.0")</li>
+                <li><strong>Space Technology Course</strong>, Indian Institute of Remote Sensing (IIRS / ISRO)</li>
               </ul>
             </div>
 
@@ -87,10 +146,23 @@ const Resume = () => {
               </div>
               <div className="education-item">
                 <div className="item-header" style={{ marginBottom: '0' }}>
-                  <h4>ISC XII (Chinmaya Vidyalaya)</h4>
+                  <h4>ISC XII (Chinmaya Vidyalaya, Rourkela)</h4>
                   <span className="date">2021 - 2023</span>
                 </div>
-                <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem' }}>Score: 84%</span>
+                <div className="edu-details" style={{ display: 'flex', justifyContent: 'space-between', color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem' }}>
+                  <span>Council for the Indian School Certificate Examinations (ISC)</span>
+                  <span>Score: 84%</span>
+                </div>
+              </div>
+              <div className="education-item">
+                <div className="item-header" style={{ marginBottom: '0' }}>
+                  <h4>ICSE X (Chinmaya Vidyalaya, Rourkela)</h4>
+                  <span className="date">2019 - 2021</span>
+                </div>
+                <div className="edu-details" style={{ display: 'flex', justifyContent: 'space-between', color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem' }}>
+                  <span>Indian Certificate of Secondary Education (ICSE)</span>
+                  <span>Score: 90%</span>
+                </div>
               </div>
             </div>
           </div>

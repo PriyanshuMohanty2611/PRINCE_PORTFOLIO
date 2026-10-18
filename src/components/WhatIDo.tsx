@@ -90,20 +90,20 @@ const WhatIDo = () => {
               <h3>AI & MACHINE LEARNING</h3>
               <h4>Developing Intelligent Systems</h4>
               <p>
-                Engineering advanced AI architectures, LLMs, and RAG systems.
-                From predictive modeling to natural language processing, I build 
-                intelligent solutions.
+                Engineering advanced AI architectures, LLMs, and RAG pipelines.
+                From predictive modeling to intelligent agent workflows, I build
+                reliable, high-performance systems.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">Python</div>
                 <div className="what-tags">PyTorch</div>
-                <div className="what-tags">TensorFlow</div>
+                <div className="what-tags">LangChain</div>
                 <div className="what-tags">LLMs</div>
                 <div className="what-tags">RAG</div>
                 <div className="what-tags">Transformers</div>
-                <div className="what-tags">LSTM</div>
-                <div className="what-tags">NLP</div>
+                <div className="what-tags">Vector DB</div>
+                <div className="what-tags">Pandas/NumPy</div>
               </div>
               <div className="what-arrow"></div>
             </div>
@@ -130,19 +130,19 @@ const WhatIDo = () => {
               <h3>COMPUTER VISION & IOT</h3>
               <h4>Real-time Perception & Monitoring</h4>
               <p>
-                Designing computer vision models for live traffic tracking and 
-                smart healthcare IoT systems with real-time analytics.
+                Designing computer vision models for live traffic tracking, CCTV
+                anomaly analytics, and smart healthcare IoT systems with edge sensors.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
+                <div className="what-tags">YOLO</div>
                 <div className="what-tags">OpenCV</div>
                 <div className="what-tags">Deep Learning</div>
-                <div className="what-tags">Sensors</div>
-                <div className="what-tags">Microcontrollers</div>
-                <div className="what-tags">Real-time Monitoring</div>
-                <div className="what-tags">IoT Architecture</div>
-                <div className="what-tags">MERN (Basic)</div>
-                <div className="what-tags">SQL</div>
+                <div className="what-tags">CUDA/DeepStream</div>
+                <div className="what-tags">ESP32/Arduino</div>
+                <div className="what-tags">IoT Sensors</div>
+                <div className="what-tags">Real-time Analytics</div>
+                <div className="what-tags">SQL / MongoDB</div>
               </div>
               <div className="what-arrow"></div>
             </div>
